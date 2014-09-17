@@ -156,6 +156,15 @@ var DEFAULT_CONFIG = {
         "combine": false,
 
         /**
+         * 配置是否要将所有精灵图合并成为一张, 当有很多 css 文件输入的时候可以使用.
+         * 在将所有图片合并为一张的同时, 是否将所有 css 文件合并为一个文件.true为
+         * 
+         * @optional
+         * @default false
+         */
+        "splitCss": false,
+
+        /**
          * 配置是否把合并了图片的样式整合成一条规则, 统一设置 background-image, 例如:
          * .cls1, .cls2{
          *     background-image: url(xxx);
@@ -1261,8 +1270,8 @@ function exportCssFile(spriteTask){
         }
     }
 
-    // 添加combineAllCss属性判断，若为true，则不合并css文件，只合并图片***********
-    if(spriteConfig.output.combineAllCss){
+    // 添加splitCss属性判断，若为true，则不合并css文件，只合并图片***********
+    if(spriteConfig.output.splitCss){
         cssContentList.forEach(function( curCssContent, index ){
             var tempCssCont = curCssContent + cssContent;
             var curFileName = fileNameArray[index].replace(/\//g, '_');
