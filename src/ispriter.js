@@ -156,8 +156,7 @@ var DEFAULT_CONFIG = {
         "combine": false,
 
         /**
-         * 配置是否要将所有精灵图合并成为一张, 当有很多 css 文件输入的时候可以使用.
-         * 在将所有图片合并为一张的同时, 是否将所有 css 文件合并为一个文件.true为
+         * 与combine属性相配合，在combine为true的情况下，若此属性为true，则不合并css文件，只合并图片
          * 
          * @optional
          * @default false
