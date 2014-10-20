@@ -1319,9 +1319,9 @@ function styleSheetToString(styleSheet) {
     for (var i=0; i<rules.length; i++) {
         rule = rules[i];
         if(rule instanceof CSSOM.CSSImportRule){
-            result += styleSheetToString(rule.styleSheet) + '\n';
+            result += styleSheetToString(rule.styleSheet);
         }else{
-            result += rule.cssText + '\n';
+            result += rule.cssText;
         }
     }
     return result;
@@ -1449,7 +1449,7 @@ exports.merge = function(config, done){
 
         // 3. 对小图片进行定位排列和输出, 输出合并后的 css 文件
         
-        if(spriteConfig.output.combine){
+        if(spriteConfig.output.combine && spriteTaskArray.length > 0){
 
             // 如果指定了 combine, 先把所有 cssRules 和 styleSheet 合并
             spriteTaskArray = combineSpriteTasks(spriteTaskArray);
